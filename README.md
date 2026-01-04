@@ -187,7 +187,7 @@ Found a bug or have a feature request? Please open an issue on [GitHub](https://
 
 ## License
 
-MIT
+See [LICENSE](LICENSE) for details.
 
 ## Release Notes
 
