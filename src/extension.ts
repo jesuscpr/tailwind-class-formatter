@@ -182,7 +182,7 @@ function formatDocument(document: vscode.TextDocument): vscode.TextEdit[] {
   const wrapIndentStyle = config.get<string>('wrapIndentStyle', 'same');
   
   // Regex para encontrar la etiqueta completa con class
-  // Captura: <tagname otros-atributos class="..." posibles-atributos-después >
+  // Captura: <tagname otros-atributos clases="..." posibles-atributos-después >
   const tagWithClassRegex = /<(\w+)([^>]*?)class(?:Name)?=["']([^"']+)["']([^>]*?)>/g;
   let match;
   
@@ -290,6 +290,14 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
+    // Si es un documento markdown no formatear
+    if (event.document.languageId === 'markdown') {
+      return;
+    }
+    if (event.document.fileName.endsWith('.md')) {
+      return;
+    }
+
     console.log('Formateando al guardar...');
     const document = event.document;
     const edits = formatDocument(document);
@@ -309,6 +317,14 @@ export function activate(context: vscode.ExtensionContext) {
     const formatOnPaste = config.get<boolean>('formatOnPaste', true);
     
     if (!formatOnPaste || event.contentChanges.length === 0) {
+      return;
+    }
+
+    // Si es un documento markdown no formatear
+    if (event.document.languageId === 'markdown') {
+      return;
+    }
+    if (event.document.fileName.endsWith('.md')) {
       return;
     }
 
