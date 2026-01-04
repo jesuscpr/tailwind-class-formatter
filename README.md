@@ -25,8 +25,7 @@ Automatically format and organize Tailwind CSS classes by categories with respon
 ```html
 <div
   class="
-    pt-4 sm:pt-6 lg:pt-8
-    px-2 md:px-4
+    pt-4 sm:pt-6 lg:pt-8 px-2 md:px-4
     text-lg
     bg-gray-100 dark:bg-gray-800
   "
@@ -106,22 +105,6 @@ The extension organizes Tailwind classes in the following order:
 12. **Accessibility** - `sr-only`, etc.
 13. **Other** - Any unrecognized classes
 
-### Responsive Grouping
-
-Classes with the same property are grouped together with their responsive variants:
-```html
-<!-- Input -->
-<div class="pt-4 md:pt-8 px-2 sm:pt-6 lg:px-4">
-
-<!-- Output -->
-<div
-  class="
-    pt-4 sm:pt-6 md:pt-8
-    px-2 lg:px-4
-  "
->
-```
-
 ### Variant Support
 
 The formatter handles all types of variants:
@@ -147,8 +130,8 @@ The formatter handles all types of variants:
     text-white font-bold
     bg-blue-500 hover:bg-blue-600
     rounded
-    shadow-lg
-    transition duration-300 ease-in-out transform hover:scale-105
+    shadow-lg transition duration-300 ease-in-out
+    transform hover:scale-105
   "
 >
 ```
